@@ -23,7 +23,7 @@
             >
               <div class="bg-transparent rounded-full animate-shadow-big w-[75%]">
                 <kinesis-element :strength="10">
-                  <img class="w-full h-full object-contain rounded-full" src="src/assets/images/profile.png" style="filter: grayscale(50%), contrast(40%)" />
+                  <img class="w-full h-full object-contain rounded-full" src="/profile.png" style="filter: grayscale(50%), contrast(40%)" />
                 </kinesis-element>
               </div>
             </div>
