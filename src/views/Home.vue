@@ -22,11 +22,13 @@
             >
               <div class="bg-transparent rounded-full animate-shadow-big w-[75%]">
                 <kinesis-element :strength="getParallaxStrength(10)">
-                  <img
-                    class="w-full h-full object-contain rounded-full"
-                    src="/profile.png"
-                    style="filter: grayscale(0.7) contrast(1.1); transform: scale(0.95);"
-                  />
+                  <div v-for="(value, index) in clickAnimationElements" :key="index" id="animationRef" @click="playAnimation">
+                    <img
+                      class="w-full h-full object-contain rounded-full"
+                      src="/profile.png"
+                      style="filter: grayscale(0.7) contrast(1.1); transform: scale(0.95);"
+                    />
+                  </div>
                 </kinesis-element>
               </div>
             </div>
@@ -83,7 +85,7 @@
 </template>
 
 <script>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed, nextTick  } from 'vue'
 import { KinesisContainer, KinesisElement } from 'vue-kinesis'
 import BaseIconLink from '../components/BaseIconLink.vue'
 import isTouch from '../utils/isTouch.js'
@@ -104,6 +106,7 @@ export default {
     const hideCursor = ref(true)
     const aspectDivs = ref([])
     const resizeObservers = ref([])
+    const clickAnimationElements = ref(['a'])
 
     const cursorCircle = computed(() => `transform: translateX(${xParent.value}px) translateY(${yParent.value}px) translateZ(0) translate3d(0, 0, 0);`)
     const cursorPoint = computed(() => `transform: translateX(${xChild.value - 5}px) translateY(${yChild.value - 5}px) translateZ(0) translate3d(0, 0, 0);`)
@@ -171,6 +174,14 @@ export default {
       }
     }
 
+    const playAnimation = async () => {
+      clickAnimationElements.value = []
+      await nextTick()
+      clickAnimationElements.value = ['a']
+      await nextTick()
+      document.getElementById('animationRef').classList.add('animate-3d-rotation')
+    }
+
     onMounted(() => {
       document.addEventListener('mousemove', moveCursor);
       document.addEventListener('mouseleave', mouseLeave);
@@ -178,12 +189,8 @@ export default {
 
 
       aspectDivs.value = document.querySelectorAll('.with-aspect')
-      window.addEventListener('resize', setAspect)
 
       setAspect()
-      // setTimeout(() => {
-      //   setAspect()
-      // }, 100)
     })
 
     onBeforeUnmount(() => {
@@ -207,7 +214,9 @@ export default {
       setAspect,
       aspectDivs,
       getParallaxStrength,
-      isTouch
+      isTouch,
+      clickAnimationElements,
+      playAnimation,
     }
   },
 }

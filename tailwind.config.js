@@ -13,11 +13,16 @@ module.exports = {
       },
       animation: {
         'shadow-big': 'shadow-big 3s ease-in-out infinite',
+        '3d-rotation': '3d-rotation 2s cubic-bezier(0.25, 1, 0.5, 1)',
       },
       keyframes: {
         'shadow-big': {
           '0%, 100%': { boxShadow: '0px 0px 100px 100px #242124;' },
           '50%': { boxShadow: '0px 0px 100px 100px #1c1a1c;' }
+        },
+        '3d-rotation': {
+          '0%': { transform: 'rotate3d(0, 1, 0, 0deg)' },
+          '100%': { transform: 'rotate3d(0, 1, 0, 1440deg)' },
         }
       },
       fontFamily: {
