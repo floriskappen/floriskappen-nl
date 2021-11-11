@@ -2,10 +2,10 @@
   <!-- Background -->
   <kinesis-container>
     <div class="w-screen h-screen bg-black-900 flex items-center justify-center relative text-white">
-      <kinesis-element :strength="10">
+      <kinesis-element :strength="getParallaxStrength(10)">
         <div class="grid px-12 md:px-0 max-w-sm md:max-w-none md:grid-cols-3 w-screen h-screen relative gap-0 md:gap-8">
           <div tag="div" class="mt-8 md:mt-0 flex md:items-end justify-center flex-col z-10">
-            <kinesis-element :strength="15" type="depth">
+            <kinesis-element :strength="getParallaxStrength(15)" type="depth">
               <p class="font-bold lg:text-8xl md:text-7xl sm:text-8xl text-7xl mb-2">Hello.</p>
               <div class="flex lg:w-[265px] md:w-[201px] sm:w-[265px] w-[201px] space-x-4">
                 <div class="w-[24px] h-1 bg-white flex-shrink-0 mt-[10px]"></div>
@@ -22,7 +22,7 @@
               style="box-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff inset"
             >
               <div class="bg-transparent rounded-full animate-shadow-big w-[75%]">
-                <kinesis-element :strength="10">
+                <kinesis-element :strength="getParallaxStrength(10)">
                   <img class="w-full h-full object-contain rounded-full" src="/profile.png" style="filter: grayscale(50%), contrast(40%)" />
                 </kinesis-element>
               </div>
@@ -71,7 +71,7 @@
 
     </div>
   </kinesis-container>
-  <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, {'g-cursor_hide': hideCursor} ]">
+  <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, { 'g-cursor_hide': hideCursor || isTouch() } ]">
     <div :style="cursorCircle" class="g-cursor__circle"></div>
     <div class="g-cursor__point" ref="point" :style="cursorPoint"></div>
   </div>
@@ -81,6 +81,7 @@
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { KinesisContainer, KinesisElement } from 'vue-kinesis'
 import BaseIconLink from '../components/BaseIconLink.vue'
+import isTouch from '../utils/isTouch.js'
 
 export default {
   components: {
@@ -133,6 +134,14 @@ export default {
       }
     }
 
+    const getParallaxStrength = (desiredStrength) => {
+      if (isTouch()) {
+        return 0
+      }
+
+      return desiredStrength
+    }
+
     const setAspect = () => {
       for (let i = 0; i < aspectDivs.value.length; i++) {
         const el = aspectDivs.value[i];
@@ -174,7 +183,9 @@ export default {
       moveCursor,
       getIndentation,
       setAspect,
-      aspectDivs
+      aspectDivs,
+      getParallaxStrength,
+      isTouch
     }
   },
 }
