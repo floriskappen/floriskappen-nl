@@ -103,6 +103,7 @@ export default {
     const hover = ref(false)
     const hideCursor = ref(true)
     const aspectDivs = ref([])
+    const resizeObservers = ref([])
 
     const cursorCircle = computed(() => `transform: translateX(${xParent.value}px) translateY(${yParent.value}px) translateZ(0) translate3d(0, 0, 0);`)
     const cursorPoint = computed(() => `transform: translateX(${xChild.value - 5}px) translateY(${yChild.value - 5}px) translateZ(0) translate3d(0, 0, 0);`)
@@ -110,6 +111,10 @@ export default {
     const moveCursor = (e) => {
       xChild.value = e.clientX;
       yChild.value = e.clientY;
+      if (xParent.value === 0 && yParent.value === 0) {
+        xParent.value = e.clientX - 15;
+        yParent.value = e.clientY - 15;
+      }
       setTimeout(() => {
         xParent.value = e.clientX - 15;
         yParent.value = e.clientY - 15;
@@ -148,12 +153,21 @@ export default {
     }
 
     const setAspect = () => {
+      resizeObservers.value.forEach((el) => {
+        el.disconnect()
+      })
+      
       for (let i = 0; i < aspectDivs.value.length; i++) {
         const el = aspectDivs.value[i];
         if (!el) {
           aspectDivs.value = document.querySelectorAll('.with-aspect')
         }
-        el.style.height = `${el.clientWidth}px`
+        const resizeFunction = (entries) => {
+          entries[0].target.style.height = `${entries[0].target.clientWidth}px`
+        }
+        const resizeObserver = new ResizeObserver(resizeFunction)
+        resizeObserver.observe(el)
+        resizeObservers.value.push(resizeObserver)
       }
     }
 
@@ -167,6 +181,9 @@ export default {
       window.addEventListener('resize', setAspect)
 
       setAspect()
+      // setTimeout(() => {
+      //   setAspect()
+      // }, 100)
     })
 
     onBeforeUnmount(() => {
