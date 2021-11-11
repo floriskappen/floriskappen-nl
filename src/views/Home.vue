@@ -36,7 +36,7 @@
           <div class="items-center justify-start z-10 hidden md:flex">
             <kinesis-container class="md:p-24 md:-ml-24">
               <kinesis-element :strength="getParallaxStrength(20)" type="depth" class="space-y-4">
-                <BaseIconLink icon="bx-chat" :style="getIndentation(0, 5)">
+                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(0, 5)">
                   Blog
                 </BaseIconLink>
                 <BaseIconLink icon="bxl-instagram" link="https://www.instagram.com/kadeflo/" :style="getIndentation(1, 5)">
