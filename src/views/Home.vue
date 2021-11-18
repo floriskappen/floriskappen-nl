@@ -25,8 +25,8 @@
                   <div v-for="(value, index) in clickAnimationElements" :key="index" id="animationRef" @click="playAnimation">
                     <img
                       class="w-full h-full object-contain rounded-full select-none"
-                      src="/profile.png"
-                      style="filter: grayscale(0.7) contrast(1.1); transform: scale(0.95);"
+                      src="/profile.webp"
+                      style="filter: grayscale(0.7); transform: scale(0.95);"
                     />
                   </div>
                 </kinesis-element>
