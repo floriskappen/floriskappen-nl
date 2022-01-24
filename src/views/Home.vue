@@ -9,14 +9,15 @@
               <p class="font-bold lg:text-8xl md:text-7xl sm:text-8xl text-7xl mb-2 font-russo">Hello<span class="text-red-800">.</span></p>
               <div class="flex lg:w-[265px] md:w-[201px] sm:w-[265px] w-[201px] lg:ml-2 md:ml-[6px] sm:ml-2 ml-[6px] space-x-4">
                 <div class="w-[24px] h-1 bg-red-800 flex-shrink-0 mt-[10px]"></div>
-                <div>
+                <div class="pb-4">
                   <p class="text-sm sm:text-base">Floris Kappen</p>
-                  <p class="opacity-40 text-sm sm:text-base">Developer from The Netherlands. Likes creating things. Find those things here.</p>
+                  <p class="opacity-40 text-sm sm:text-base">Developer from 🇳🇱. Likes creating things. Find those things here.</p>
+                  <router-link to="/now" class="opacity-40 text-sm sm:text-base underline cursor-none">What I'm doing now.</router-link>
                 </div>
               </div>
             </kinesis-element>
           </div>
-          <div class="flex items-center justify-center relative w-full sm:mt-0 -mt-4">
+          <div class="flex items-center justify-center relative w-full sm:mt-4 -mt-2">
             <div
               class="with-aspect w-full bg-transparent rounded-full border-red-600 border-opacity-40 border-2 top-0 left-0 flex items-center justify-center"
             >
@@ -36,40 +37,40 @@
           <div class="items-center justify-start z-10 hidden md:flex">
             <kinesis-container class="md:p-24 md:-ml-24">
               <kinesis-element :strength="getParallaxStrength(20)" type="depth" class="space-y-4">
-                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(0, 5)">
+                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(0, 5)">
+                  Stories From Here
+                </BaseIconLink>
+                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(1, 5)">
+                  KADE
+                </BaseIconLink>
+                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 5)">
                   Blog
                 </BaseIconLink>
-                <BaseIconLink icon="bxl-instagram" link="https://www.instagram.com/kadeflo/" :style="getIndentation(1, 5)">
-                  Photography
-                </BaseIconLink>
-                <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(2, 5)">
+                <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(3, 5)">
                   Music
                 </BaseIconLink>
-                <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(3, 5)">
+                <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(4, 5)">
                   LinkedIn
-                </BaseIconLink>
-                <BaseIconLink icon="bx-joystick" link="https://kadeflo.itch.io/" :style="getIndentation(4, 5)">
-                  Games
                 </BaseIconLink>
               </kinesis-element>
             </kinesis-container>
           </div>
           <div class="md:hidden w-full flex items-center justify-center pb-6">
             <div class="grid grid-cols-2 w-fit">
-              <BaseIconLink icon="bx-chat">
-                Blog
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw">
+                SFH
               </BaseIconLink>
-              <BaseIconLink icon="bxl-instagram" link="https://www.instagram.com/kadeflo/">
-                Photography
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/">
+                KADE
+              </BaseIconLink>
+              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/">
+                Blog
               </BaseIconLink>
               <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/">
                 Music
               </BaseIconLink>
               <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/">
                 LinkedIn
-              </BaseIconLink>
-              <BaseIconLink icon="bx-joystick" link="https://kadeflo.itch.io/">
-                Games
               </BaseIconLink>
             </div>
           </div>
@@ -82,6 +83,7 @@
     <div :style="cursorCircle" class="g-cursor__circle"></div>
     <div class="g-cursor__point" ref="point" :style="cursorPoint"></div>
   </div>
+  <router-view></router-view>
 </template>
 
 <script>
