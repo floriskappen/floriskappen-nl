@@ -1,18 +1,23 @@
 <template>
   <!-- Background -->
   <kinesis-container>
-    <div class="w-screen h-screen bg-black-900 flex items-center justify-center relative text-white" style="linear-gradient(54deg, #0e0d0e 0%, #100f10 100%);">
+    <div class="w-screen h-screen absolute top-0 left-0 bg-[#100f10]"></div>
+    <div class="w-screen h-fit bg-black-900 flex items-center justify-center relative text-white" style="linear-gradient(54deg, #0e0d0e 0%, #100f10 100%);">
       <kinesis-element :strength="getParallaxStrength(10)">
-        <div class="grid px-12 md:px-0 max-w-sm md:max-w-none md:grid-cols-3 w-screen h-screen relative gap-0 md:gap-8">
-          <div tag="div" class="-mt-4 sm:mt-8 md:mt-0 flex md:items-end justify-center flex-col z-10 transform md:translate-x-14 sm:translate-y-0 translate-y-8">
+        <div class="grid px-12 md:px-0 max-w-sm md:max-w-none md:grid-cols-3 w-screen sm:h-screen relative gap-0 md:gap-8 pb-4">
+          <div tag="div" class="mt-0 sm:mt-8 md:mt-0 flex items-center md:items-end justify-center flex-col z-10 transform md:translate-x-14 sm:translate-y-0 translate-y-8 sm:mb-0 mb-4">
             <kinesis-element :strength="getParallaxStrength(15)" type="depth">
-              <p class="font-bold lg:text-8xl md:text-7xl sm:text-8xl text-7xl mb-2 font-russo">Hello<span class="text-red-800">.</span></p>
-              <div class="flex lg:w-[265px] md:w-[201px] sm:w-[265px] w-[201px] lg:ml-2 md:ml-[6px] sm:ml-2 ml-[6px] space-x-4">
-                <div class="w-[24px] h-1 bg-red-800 flex-shrink-0 mt-[10px]"></div>
-                <div class="pb-4">
-                  <p class="text-sm sm:text-base">Floris Kappen</p>
-                  <p class="opacity-40 text-sm sm:text-base">Developer from 🇳🇱. Likes creating things. Find those things here.</p>
-                  <router-link to="/now" class="opacity-40 text-sm sm:text-base underline cursor-none">What I'm doing now.</router-link>
+              <div class="w-full flex sm:relative justify-center">
+                <p class="font-bold lg:text-8xl md:text-7xl sm:text-8xl text-7xl mb-2 font-russo w-fit">Hello<span class="text-red-800">.</span></p>
+              </div>
+              <div class="w-full flex sm:relative items-center justify-center">
+                <div class="flex lg:w-[265px] md:w-[201px] sm:w-[265px] w-[201px] lg:ml-2 md:ml-[6px] sm:ml-2 ml-[6px] space-x-4">
+                  <div class="w-[24px] h-1 bg-red-800 flex-shrink-0 mt-[10px]"></div>
+                  <div class="pb-4">
+                    <p class="text-sm sm:text-base">Floris Kappen</p>
+                    <p class="opacity-40 text-sm sm:text-base">Developer from 🇳🇱. Likes creating things. Find those things here.</p>
+                    <router-link to="/now" class="opacity-40 text-sm sm:text-base underline cursor-none">What I'm doing now.</router-link>
+                  </div>
                 </div>
               </div>
             </kinesis-element>
@@ -41,7 +46,7 @@
                   Stories From Here
                 </BaseIconLink>
                 <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(1, 5)">
-                  KADE
+                  Devlogs
                 </BaseIconLink>
                 <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 5)">
                   Blog
@@ -55,21 +60,21 @@
               </kinesis-element>
             </kinesis-container>
           </div>
-          <div class="md:hidden w-full flex items-center justify-center pb-6">
-            <div class="grid grid-cols-2 w-fit">
-              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw">
-                SFH
+          <div class="md:hidden w-full flex items-center justify-center pb-6 transform translate-x-4">
+            <div class="w-fit space-y-2">
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(0, 5)">
+                Stories From Here
               </BaseIconLink>
-              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/">
-                KADE
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(1, 5)">
+                Devlogs
               </BaseIconLink>
-              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/">
+              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 5)">
                 Blog
               </BaseIconLink>
-              <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/">
+              <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(3, 5)">
                 Music
               </BaseIconLink>
-              <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/">
+              <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(4, 5)">
                 LinkedIn
               </BaseIconLink>
             </div>
@@ -79,7 +84,7 @@
 
     </div>
   </kinesis-container>
-  <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, { 'g-cursor_hide': hideCursor || isTouch() } ]">
+  <div class="absolute" :class="[ 'g-cursor', { 'g-cursor_hover': hover }, { 'g-cursor_hide': hideCursor || isTouch() } ]">
     <div :style="cursorCircle" class="g-cursor__circle"></div>
     <div class="g-cursor__point" ref="point" :style="cursorPoint"></div>
   </div>
