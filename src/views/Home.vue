@@ -15,7 +15,7 @@
                   <div class="w-[24px] h-1 bg-red-800 flex-shrink-0 mt-[10px]"></div>
                   <div class="pb-4">
                     <p class="text-sm sm:text-base">Floris Kappen</p>
-                    <p class="opacity-40 text-sm sm:text-base">Developer from 🇳🇱. Likes creating things. Find those things here.</p>
+                    <p class="opacity-40 text-sm sm:text-base">Creator from 🇳🇱. Likes making things sometimes. Find those things here.</p>
                     <router-link to="/now" class="opacity-40 text-sm sm:text-base underline cursor-none">What I'm doing now.</router-link>
                   </div>
                 </div>
@@ -42,40 +42,46 @@
           <div class="items-center justify-start z-10 hidden md:flex">
             <kinesis-container class="md:p-24 md:-ml-24">
               <kinesis-element :strength="getParallaxStrength(20)" type="depth" class="space-y-4">
-                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(0, 5)">
-                  Stories From Here
-                </BaseIconLink>
-                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(1, 5)">
-                  Devlogs
-                </BaseIconLink>
-                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 5)">
-                  Blog
-                </BaseIconLink>
-                <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(3, 5)">
+                <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(0, 6)">
                   Music
                 </BaseIconLink>
-                <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(4, 5)">
+                <BaseIconLink icon="bx-game" link="https://kadeflo.itch.io/" :style="getIndentation(1, 6)">
+                  Games
+                </BaseIconLink>
+                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 6)">
+                  Blog
+                </BaseIconLink>
+                <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(3, 6)">
                   LinkedIn
+                </BaseIconLink>
+                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(4, 6)">
+                  Devlogs (Inactive)
+                </BaseIconLink>
+                <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(5, 6)">
+                  Stories From Here (Inactive)
                 </BaseIconLink>
               </kinesis-element>
             </kinesis-container>
           </div>
           <div class="md:hidden w-full flex items-center justify-center pb-6 transform translate-x-4">
             <div class="w-fit space-y-2">
-              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(0, 5)">
-                Stories From Here
+              <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(0, 6)">
+                  Music
               </BaseIconLink>
-              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(1, 5)">
-                Devlogs
+              <BaseIconLink icon="bx-game" link="https://kadeflo.itch.io/" :style="getIndentation(1, 6)">
+                Games
               </BaseIconLink>
-              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 5)">
+              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 6)">
                 Blog
               </BaseIconLink>
-              <BaseIconLink icon="bx-music" link="https://kadeflo.bandcamp.com/" :style="getIndentation(3, 5)">
-                Music
-              </BaseIconLink>
-              <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(4, 5)">
+              <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(3, 6)">
                 LinkedIn
+              </BaseIconLink>
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCxiqI8VQqZJNTRCU5iXGujw/" :style="getIndentation(4, 6)">
+                Devlogs (Inactive)
+              </BaseIconLink>
+              <BaseIconLink icon="bxl-youtube" link="https://www.youtube.com/channel/UCfC4qHXvuZApyiBqfjvRYBw" :style="getIndentation(5, 6)">
+                Stories From Here (Inactive)
               </BaseIconLink>
             </div>
           </div>
