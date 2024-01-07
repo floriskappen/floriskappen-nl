@@ -48,7 +48,7 @@
                 <BaseIconLink icon="bx-game" link="https://kadeflo.itch.io/" :style="getIndentation(1, 6)">
                   Games
                 </BaseIconLink>
-                <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 6)">
+                <BaseIconLink icon="bx-chat" link="https://blog.floris.zip/" :style="getIndentation(2, 6)">
                   Blog
                 </BaseIconLink>
                 <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(3, 6)">
@@ -71,7 +71,7 @@
               <BaseIconLink icon="bx-game" link="https://kadeflo.itch.io/" :style="getIndentation(1, 6)">
                 Games
               </BaseIconLink>
-              <BaseIconLink icon="bx-chat" link="https://blog.floriskappen.nl/" :style="getIndentation(2, 6)">
+              <BaseIconLink icon="bx-chat" link="https://blog.floris.zip/" :style="getIndentation(2, 6)">
                 Blog
               </BaseIconLink>
               <BaseIconLink icon="bxl-linkedin" link="https://www.linkedin.com/in/floriskappen/" :style="getIndentation(3, 6)">
